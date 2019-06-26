@@ -136,14 +136,22 @@
         ]
     },
     plugins:[
-        new htmlWebpackPlugin({
+    new htmlWebpackPlugin({
+            minify:{ //是对html文件进行压缩
+                removeAttributeQuotes:true  //removeAttrubuteQuotes是却掉属性的双引号。
+            },
+            hash:true,
+            title:"helloworld",
+            template:'./es6/helloworld.html'
+        })
+        ,new htmlWebpackPlugin({
         	minify:{ //是对html文件进行压缩
         	    removeAttributeQuotes:true  //removeAttrubuteQuotes是却掉属性的双引号。
         	},
         	hash:true,
             title:"首页",
             template:'./es6/index.html'
-        })
+        })        
         ,new VueLoaderPlugin()
         ,new uglify()
         ,new extractTextPlugin("css/index.css")
