@@ -2,13 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>es6处理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   
 </head>
 <body>
-     <div id="study"></div>
+	<div id="study"></div>
      <div class="img"></div>
 
+     <a onclick="a()">confirm</a>
+	 <a onclick="b()">alert</a>
+	 <script type="text/javascript">
+	 	
+	 	function a(){
+	 	     $Toast.confirm().btnConfirm(function(){
+	 	         //确定点击 后你的代码
+	 	         alert('ok');
+	 	     }).btnCancel(function(){
+	 	         //取消点击后 你的代码
+	 	         alert('no')
+	 	     });
+	 	 }
+	 	 function b(){
+	 	     $Toast.alert().btnConfirm(function(){
+	 	         alert(1);
+	 	     });
+	 	 }
+	 </script>
+    <!--begin 调用了我封装的组件调用几次就会用几个组件显示-->
+    <!-- <my-tab></my-tab>
+    <my-tab tabData='["美国","伊朗"]' index="1"></my-tab> -->
+    <!--end调用了我封装的组件-->
+    <!-- <script src="./选项卡封装.js"></script> -->
+   
 </body>
-
-
 </html>

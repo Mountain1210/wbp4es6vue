@@ -144,10 +144,6 @@
             title:"首页",
             template:'./es6/index.html'
         })
-        // ,new htmlWebpackPlugin({
-        //     title:"default",
-        //     template:'./default.html'
-        // })
         ,new VueLoaderPlugin()
         ,new uglify()
         ,new extractTextPlugin("css/index.css")
@@ -155,13 +151,5 @@
         //   //这里配置了一个paths，主要是需找html模板，purifycss根据这个配置会遍历你的文件，查找哪些css被使用了。
         //   paths: glob.sync(path.join(__dirname, 'src/*.html')),
         //   }),
-        // ,new htmlPlugin({
-        //     minify:{ //是对html文件进行压缩
-        //         removeAttributeQuotes:true  //removeAttrubuteQuotes是却掉属性的双引号。
-        //     },
-        //     hash:true, //为了开发中js有缓存效果，所以加入hash，这样可以有效避免缓存JS。
-        //     template:'./src/index.html' //是要打包的html模版路径和文件名称。
-           
-        // })
     ]
  }
