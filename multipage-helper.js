@@ -66,7 +66,7 @@ exports.getDevHtmlWebpackPluginList = function getDevHtmlWebpackPluginList(){
     var conf = {
       filename: mod.moduleID+".html",
       template: mod.moduleHTML,
-      chunks: [mod.moduleID],
+      chunks: ['manifest','vendor',mod.moduleID],
       inject: true
     }
     console.log(conf)

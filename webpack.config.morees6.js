@@ -85,17 +85,18 @@
         $: 'jQuery'
         ,_:'_'
     },
-    optimization: {
-            splitChunks: {
-                cacheGroups: {
-                    commons: {
-                        name: "commons",
-                        chunks: "initial",
-                        minChunks: 2
-                    }
-                }
-            }
-        },
+    // optimization: {
+    //         splitChunks: {
+    //             cacheGroups: {
+    //                 commons: {
+    //                     name: "commons",
+    //                     chunks: "initial",
+    //                     minChunks: 2
+    //                 }
+    //             }
+    //         }
+    //     },
+    
     module:{
         rules:[
             {
@@ -201,7 +202,32 @@
         //   //这里配置了一个paths，主要是需找html模板，purifycss根据这个配置会遍历你的文件，查找哪些css被使用了。
         //   paths: glob.sync(path.join(__dirname, 'src/*.html')),
         //   }),
-    ]
+    ],
+    optimization: {
+            runtimeChunk: {
+                "name": "manifest"
+            },
+            splitChunks: {
+                cacheGroups: {
+                    default: false,
+                    vendors: false
+                    ,vendor: {
+                        test: /[\\/]node_modules[\\/]/,
+                        chunks: 'initial',
+                        enforce: true,
+                        priority: 10,
+                        name: 'vendor'
+                    }
+                    // ,common: {
+                    //     chunks: "all",
+                    //     minChunks: 2,
+                    //     name: 'common',
+                    //     enforce: true,
+                    //     priority: 5
+                    // }
+                }
+            }
+        }
  }
 
 
