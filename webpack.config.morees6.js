@@ -13,6 +13,13 @@
   const glob = require('glob'); //使用PurifyCSS可以大大减少CSS冗余
   const PurifyCSSPlugin = require("purifycss-webpack");
   const webpack = require("webpack");
+  var fs = require("fs")
+
+  var multipageHelper = require('./multipage-helper')
+
+
+  var moduleList          //缓存多页面模块列表
+  var moduleRootPath = './src/module' //模块根目录(这个可以根据自己的需求命名)
 
 //webpack4配置需要包含VueLoaderPlugin,
 //在输出里面配置plugins:{new VueLoaderPlugin()}
@@ -24,14 +31,41 @@
      // publicPath:"http://192.168.1.103:8888/"
  }
 
+ //动态添加入口
+ // function getEntry(){
+ //     var entry = {};
+ //     //读取src目录所有page入口
+ //     glob.sync('./mrsrc/js/**/*.js').forEach(function(name){
+ //         var start = name.indexOf('mrsrc/') + 4;
+ //         var end = name.length - 3;
+ //         var eArr = [];
+ //         var n = name.slice(start,end);
+ //         n= n.split('/')[1];
+ //         eArr.push(name);
+ //         eArr.push('babel-polyfill');
+ //         entry[n] = eArr;
+ //     })
+ //     return entry;
+ // }
+ // //动态生成html
+ // //获取html-webpack-plugin参数的方法
+ // var getHtmlConfig = function(name,chunks){
+ //     return {
+ //         template:`./mrsrc/pages/${name}.html`,
+ //         filename:`pages/${name}.html`,
+ //         inject:true,
+ //         hash:false,
+ //         chunks:[name]
+ //     }
+ // }
  // 这里的IP和端口，是你本机的ip或者是你devServer配置的IP和端口。
 
 
  module.exports = {
     mode:"production",//webpack4判断是生产环境还是开发环境 
-    entry:"./es6/main1.js",//入口文件  PS：入口错误会导致impoft样式找不到,热加载失误
+    entry:multipageHelper.getEntries(),//入口文件  PS：入口错误会导致impoft样式找不到,热加载失误
     output:{
-        path:path.resolve(__dirname,"dist")//打包输出的文件目录
+        path:path.resolve(__dirname,"mrsrcdist")//打包输出的文件目录
 
         ,filename:"js/[name].js"//输出的文件名
         ,publicPath:website.publicPath,  //publicPath：主要作用就是处理静态文件路径的
@@ -40,7 +74,7 @@
     devServer:{
     	// contentBase:path.resolve(__dirname,'./es6'),
     	//热重载
-        contentBase: path.join(__dirname, "es6"),
+        contentBase: path.join(__dirname, "mrsrc"),
         //热重载需要监听的文件目录
         compress: true,
         //启用压缩
@@ -137,23 +171,8 @@
         ]
     },
     plugins:[
-    new htmlWebpackPlugin({
-            minify:{ //是对html文件进行压缩
-                removeAttributeQuotes:true  //removeAttrubuteQuotes是却掉属性的双引号。
-            },
-            hash:true,
-            title:"helloworld",
-            template:'./es6/helloworld.html'
-        })
-        ,new htmlWebpackPlugin({
-        	minify:{ //是对html文件进行压缩
-        	    removeAttributeQuotes:true  //removeAttrubuteQuotes是却掉属性的双引号。
-        	},
-        	hash:true,
-            title:"首页",
-            template:'./es6/index.html'
-        })  
-        ,new webpack.ProvidePlugin({
+
+        new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
             jquery: "jquery",
@@ -168,3 +187,6 @@
         //   }),
     ]
  }
+
+
+Array.prototype.push.apply(module.exports.plugins,multipageHelper.getDevHtmlWebpackPluginList())

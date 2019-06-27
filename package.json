@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open",
-    "es6": "webpack-dev-server --port 4000 --hot --inline --config webpack.config.es6.js",
-    "bes6": "webpack --config webpack.config.es6.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+    ,"start": "webpack-dev-server --open"
+    ,"es6": "webpack-dev-server --port 4000 --hot --inline --config webpack.config.es6.js"
+    ,"bes6": "webpack --config webpack.config.es6.js"
+    ,"mes6": "webpack-dev-server --port 4000 --hot --inline --config webpack.config.morees6.js"
+    ,"bmes6": "webpack --config webpack.config.morees6.js"
   },
   "author": "",
   "license": "ISC",
@@ -38,5 +40,8 @@
     "webpack": "^4.35.0",
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "jquery": "^1.12.4"
   }
 }

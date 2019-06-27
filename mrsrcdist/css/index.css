@@ -1,0 +1,12 @@
+#study {
+  width: 300px;
+  height: 300px;
+  color: #fff;
+  background-color: #000;
+}
+body{background-color: #f00}
+.img{
+    background-image: url(http://localhost:4000/images/img/1.2246aa1.png);
+    width:466px;
+    height:453px;
+}

@@ -1,0 +1,6 @@
+body{background-color: #f00}
+.img{
+    background-image: url(1.png);
+    width:466px;
+    height:453px;
+}
