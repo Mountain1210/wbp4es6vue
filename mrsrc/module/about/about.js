@@ -1,1 +1,3 @@
-alert(1234)
+console.log($);
+console.log(_);
+alert(111)

@@ -81,6 +81,21 @@
         port: 9000
          //监听的端口号码
     },
+    externals:{//全局简写
+        $: 'jQuery'
+        ,_:'_'
+    },
+    optimization: {
+            splitChunks: {
+                cacheGroups: {
+                    commons: {
+                        name: "commons",
+                        chunks: "initial",
+                        minChunks: 2
+                    }
+                }
+            }
+        },
     module:{
         rules:[
             {
@@ -173,10 +188,11 @@
     plugins:[
 
         new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            jquery: "jquery",
-            "window.jQuery": "jquery"
+            $: "jquery"
+            ,jQuery: "jquery"
+            ,jquery: "jquery"
+            ,"window.jQuery": "jquery"
+            ,_ : 'lodash'
         })  
         ,new VueLoaderPlugin()
         ,new uglify()
