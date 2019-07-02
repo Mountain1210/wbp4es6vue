@@ -86,17 +86,25 @@ module.exports = {
             //     // ]
             // }
             , {
-                test: /\.(png|jpg|gif|jpeg|mp4)/, //是匹配图片文件后缀名称
+                test: /\.(png|jpg|gif|jpeg)/, //是匹配图片文件后缀名称
                 use: [{
                     loader: 'url-loader', //是指定使用的loader和loader的配置参数
                     options: {
                         limit: 500 //是把小于500B的文件打成Base64的格式，写入JS
-                            ,
-                        name: function(name){
-                            console.log("名字是＝＝"+name)
-                            return 'img/[name].[hash:7].[ext]'
-                        },
+                            
+                        ,name:'[name].[hash:7].[ext]',
                         outputPath: 'images/',
+                    }
+                }]
+            },  {
+                test: /\.(mp4)/, //是匹配图片文件后缀名称
+                use: [{
+                    loader: 'url-loader', //是指定使用的loader和loader的配置参数
+                    options: {
+                        limit: 500 //是把小于500B的文件打成Base64的格式，写入JS
+                            
+                        ,name:'[name].[hash:7].[ext]',
+                        outputPath: 'media/',
                     }
                 }]
             }, {
