@@ -9,12 +9,7 @@
     <style type="text/css">
     #win {
         display: none;
-        position: absolute;
-        left: 270px;
-        top: 270px;
-        width: 400px;
-        height: 230px;
-        border: #F00 2px solid;
+        /* border: #F00 2px solid; */
     }
     </style>
 </head>
@@ -22,14 +17,14 @@
 <body>
 <!--     <video id="video" src="../common/media/demo.mp4" width=" 400px " controls="controls ">您的浏览器不支持</video> -->
 
-    <video id="video" width="320" height="240" controls>
+    <video id="video" controls>
         <source src="" type="video/mp4">
         您的浏览器不支持 video 标签。
     </video>
   <button id="btnCatchPicture">截图</button>
   <!--截图的-->
-  <div id="win"><br>
-  <canvas id="canvass" width="400px " height="230px "></canvas><!--设置截屏画布的大小-->
-  </div>
+  <span id="win">
+  <canvas id="canvass"></canvas><!--设置截屏画布的大小-->
+  </span>
   </body>
 </html>
