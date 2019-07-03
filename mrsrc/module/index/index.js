@@ -8,7 +8,7 @@ import jquery from "jquery";
 // document.write('<div style="color:#F11">Welcome to AI World</div>')
 // console.log($)
 // console.log(_)
-// console.log(mov)
+console.log(mov)
 document.getElementById('video').src = mov;
     //函数
    document.getElementById('btnCatchPicture').addEventListener('click', function(){
