@@ -4,3 +4,9 @@ body{background-color: #000}
     width:466px;
     height:453px;
 }
+
+.dmz{
+	background-image: url(dmz.jpg);
+    width:1080px;
+    height:2340px;
+}
