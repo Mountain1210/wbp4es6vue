@@ -90,7 +90,7 @@ module.exports = {
                 use: [{
                     loader: 'url-loader', //是指定使用的loader和loader的配置参数
                     options: {
-                        limit: 500 //是把小于500B的文件打成Base64的格式，写入JS
+                        limit: 3000 //是把小于500B的文件打成Base64的格式，写入JS
                             
                         ,name:'[name].[hash:7].[ext]',
                         outputPath: 'images/',
