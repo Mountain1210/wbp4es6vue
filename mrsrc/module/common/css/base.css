@@ -2,6 +2,8 @@
 /* base */
 
 /*样式初始化设置*/
+body{background-color: ;}
+
 body,p,h1,h2,h3,h4,h5,h6{ 
 	margin:0; 
 	font-size:12px; 
@@ -113,3 +115,16 @@ img{
 .w1170{
 	width: 1170px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

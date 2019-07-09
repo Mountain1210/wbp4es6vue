@@ -40,7 +40,7 @@ module.exports = {
         ,
         filename: "js/[name].js" //输出的文件名
             ,
-        publicPath: website.publicPath, //publicPath：主要作用就是处理静态文件路径的
+        publicPath: website.publicPath, //publicPath：主要作用就是处理html中静态文件引用的路径
     },
 
     devServer: {
