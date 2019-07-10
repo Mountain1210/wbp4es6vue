@@ -2,8 +2,10 @@
   overflow: hidden;
 }
 .startzj .article {
-  width: 48%;
   border: 1px solid #e4e4e4;
+  height: 730px;
+  width: 48%;
+  overflow: hidden;
   float: left;
 }
 .startzj .article:first-child {
@@ -84,8 +86,9 @@
   color: #666;
 }
 .startzj .article .testcontent li .load dt {
-  background: url(http://localhost:4000/images/load.cae295f.gif) 60px top no-repeat;
+  background: url(http://localhost:4000/images/load.cae295f.gif) 45px top no-repeat;
   background-size: 16px;
+  font-weight: normal;
 }
 .startzj .article .testcontent li .load .faild {
   background: url(http://localhost:4000/images/u3024.ab41c8b.png) 60px top no-repeat;
@@ -125,6 +128,7 @@
   padding: 6px 10px;
   color: #fff;
   border: none;
+  font: menu;
 }
 .startzj .listtable .tabchange {
   overflow: hidden;
@@ -144,6 +148,11 @@
 }
 .startzj .listtable .tablecontent {
   padding: 16px 12px 12px 12px;
+  width: 483px;
+}
+.startzj .listtable .tablecontent .zjbgcontent {
+  overflow: auto;
+  height: 665px;
 }
 .startzj .listtable .ultabhead {
   display: table;
@@ -335,6 +344,25 @@
 .slwrap {
   max-width: 960px;
   margin: 0 auto;
+}
+.zjbtncontent {
+  margin-top: 24px;
+  text-align: center;
+}
+.zjbtncontent button {
+  border: none;
+  padding: 8px 21px;
+  border-radius: 6px;
+}
+.zjbtncontent #save {
+  background-color: #1abc9c;
+  color: #fff;
+  font-size: 14px;
+}
+.zjbtncontent #cancel {
+  border: 1px solid #1abc9c;
+  color: #1abc9c;
+  background-color: #fff;
 }
 @charset "utf-8";
 /* base */

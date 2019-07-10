@@ -1,8 +1,10 @@
 .startzj{
 	overflow:hidden;
 	.article{
-		width:48%;
 		border:1px solid #e4e4e4;
+		height:730px;
+		width:48%;
+		overflow:hidden;
 		float:left;
 		&:first-child{
 			margin-right:1.8%;
@@ -55,7 +57,7 @@
 					height: 120px;
 					text-align: center;
 					dt,dd{margin-bottom:5px; color:#666}
-					dt{background:url(../images/load.gif) 60px top no-repeat; background-size:16px;}
+					dt{background:url(../images/load.gif) 45px top no-repeat; background-size:16px;font-weight: normal;}
 					.faild{background:url(../images/u3024.png) 60px top no-repeat; background-size:16px;}
 					.txt{color:#c1c1c1}
 					.recheck{text-align:right; color:#65cea6; padding-right:45px}
@@ -86,6 +88,7 @@
 						padding:6px 10px;
 						color:#fff;
 						border:none;
+						font:menu;
 					}
 				}
 			}
@@ -110,6 +113,10 @@
 		}
 		.tablecontent{
 			padding:16px 12px 12px 12px;
+			width:483px;
+			.zjbgcontent {
+				overflow: auto;
+			}
 		}
 		.ultabhead{
 			display:table;
@@ -242,8 +249,7 @@
 
 				}
 			}
-			.jbxx{
-				
+			.jbxx{				
 				
 			}
 		}
@@ -266,7 +272,7 @@
 .zjbtncontent{
 	margin-top:24px;
 	text-align:center;
-	button{border:none;padding:12px 21px;border-radius: 6px;}
+	button{border:none;padding:8px 21px;border-radius: 6px;}
 	#save{
 		background-color:#1abc9c;
 		color:#fff;		

@@ -5,23 +5,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPIC</title>
+    <title>双录质检</title>
 </head>
 
 <body>
+  <div id="imgid"></div>
     <!-- <div class="dmz"></div> -->
     <!-- <div id="screencontent"></div> -->
     <div class="slwrap">
     <div class="startzj">
       <div class="article">
         <div class="videocontent">
-          <div id="screencontent"></div>
+          <div id="screencontent">
+            <video id="video" controls="" src="http://localhost:4000/media/demo.ee87962.mp4"><source src="" type="video/mp4"></video>
+          </div>
           <div class="testcontent">
             <ul>
               <li>
                 <p class="testimg ht">活体检测</p>
                 <p class="fg"></p>
-                <p class="textcontent" style="display: none">                  
+                <p class="textcontent">                  
                   <button class="jcbtn">开始检测</button>                  
                 </p>
                 <dl class="htjc"  style="display: none">
@@ -30,7 +33,7 @@
                   <dd class="recheck"><span>重新检测</span></dd>
                 </dl>
 
-                <dl class="load">
+                <dl class="load"  style="display: none">
                   <dt>活体检测验证中，请稍后...</dt>
                 </dl>
               </li>
@@ -118,7 +121,7 @@
         </div>
         </div>
 
-        <div class="bdtable tablecontent">
+        <div class="bdtable tablecontent" style="display:none">
           <dl class="jbxx">
             <dt>保单基本信息</dt>
             <dd>

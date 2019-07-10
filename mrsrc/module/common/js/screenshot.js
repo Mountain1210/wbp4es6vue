@@ -10,12 +10,10 @@ var Screenshot = function(mediaobj){
 	let screentemp=[
 	  '<video id="video" controls>',
 	  '<source src="" type="video/mp4">',
-	  '您的浏览器不支持 video 标签。',
 	  '</video>',
 	  '<button id="btnCatchPicture">截图</button>',
-	  '<!--截图的-->',
 	  '<span id="win">',
-	  '<canvas id="canvass"></canvas><!--设置截屏画布的大小-->',
+	  '<canvas id="canvass"></canvas>',
 	  '</span>'
 	].join('');
 	$('#'+mediaobj.el).append(screentemp);
