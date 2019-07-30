@@ -14,6 +14,8 @@ const glob = require('glob'); //使用PurifyCSS可以大大减少CSS冗余
 const PurifyCSSPlugin = require("purifycss-webpack");
 const webpack = require("webpack");
 var fs = require("fs")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 var multipageHelper = require('./multipage-helper')
 
@@ -35,6 +37,7 @@ module.exports = {
     mode: "production", //webpack4判断是生产环境还是开发环境 
     entry: multipageHelper.getEntries(), //入口文件  PS：入口错误会导致impoft样式找不到,热加载失误
     devtool: 'inline-source-map',
+    // stats: { children: false },
     output: {
         path: path.resolve(__dirname, "mrsrcdist") //打包输出的文件目录
 
@@ -67,7 +70,7 @@ module.exports = {
                 test: /\.css$/,
                 use: extractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: [{
+                    use: ['css-hot-loader',MiniCssExtractPlugin.loader,{
                         loader: "css-loader"
                     }, {
                         loader: "postcss-loader"
@@ -154,19 +157,77 @@ module.exports = {
                 },
                 exclude: /node_modules/
             }
+            // ,{
+            //     test: /\.css$/,
+            //     use: [
+            //         MiniCssExtractPlugin.loader,
+            //         {
+            //             loader: 'css-loader',
+            //             options: {
+            //                 url: false
+            //             }
+            //         }
+            //     ]
+            // }
+            ,{
+               //解析.scss文件
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "sass-loader"
+                ]
+            }
+            // ,{
+            //     test: /\.css$/,
+            //     use: extractTextPlugin.extract({
+            //     fallback: 'style-loader',
+            //     use: [
+            //             {
+            //                 loader: 'css-loader',
+            //                     options: {
+            //                         url: false
+            //                     }
+            //             },
+            //             "sass-loader",
+            //             "less-loader"
+
+            //         ]
+            //     })
+            // }
+
         ]
     },
     plugins: [
-
+          new OptimizeCSSAssetsPlugin ({
+            // 默认是全部的CSS都压缩，该字段可以指定某些要处理的文件
+            assetNameRegExp: /\.(sa|sc|c)ss$/g, 
+            // 指定一个优化css的处理器，默认cssnano
+            cssProcessor: require('cssnano'),
+           
+            cssProcessorPluginOptions: {
+              preset: [  'default', {
+                  discardComments: { removeAll: true}, //对注释的处理
+                  normalizeUnicode: false // 建议false,否则在使用unicode-range的时候会产生乱码
+              }]
+            },
+            canPrint: true  // 是否打印编译过程中的日志
+          }),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
             jquery: "jquery",
             "window.jQuery": "jquery",
             _: 'lodash'
-        }), new VueLoaderPlugin(), new uglify(), new extractTextPlugin({
-  filename: 'css/[name].css'
-})
+        }), 
+        new VueLoaderPlugin(), 
+        new uglify(), 
+        new extractTextPlugin({
+          filename: 'css/[name].css'
+        }),
+        new MiniCssExtractPlugin({
+        　　filename: "./css/[name].css"                     // 提取出来的css文件路径以及命名
+        })
         // ,new PurifyCSSPlugin({ 
         //   //这里配置了一个paths，主要是需找html模板，purifycss根据这个配置会遍历你的文件，查找哪些css被使用了。
         //   paths: glob.sync(path.join(__dirname, 'src/*.html')),

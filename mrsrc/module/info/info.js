@@ -1,5 +1,3 @@
-
-import css from "../common/css/index.css"
 import less from "../common/css/indexless.less"
 
 import lodash from 'lodash'

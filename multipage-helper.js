@@ -66,7 +66,7 @@ exports.getDevHtmlWebpackPluginList = function getDevHtmlWebpackPluginList(){
     var conf = {
       filename: mod.moduleID+".html",
       template: mod.moduleHTML,
-      chunks: ['manifest','vendor',mod.moduleID],
+      chunks: ['manifest','vendor','base',mod.moduleID],
       inject: true
     }
     console.log(conf)
@@ -102,7 +102,7 @@ exports.getProdHtmlWebpackPluginList = function getProdHtmlWebpackPluginList(){
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency',
-      chunks: ['manifest','vendor',mod.moduleID]
+      chunks: ['manifest','vendor','base',mod.moduleID]
     }
     console.log(conf)
     //添加HtmlWebpackPlugin对象
