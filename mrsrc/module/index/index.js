@@ -8,14 +8,14 @@ import screenshot from '../common/js/screenshot.js';
 // import lodash from 'lodash'
 // import jquery from "jquery";
 // document.write('<div style="color:#F11">Welcome to AI World</div>')
-console.log($)
+// console.log($)
 // console.log(_)// console.log(screenshot)
-// let obj={
-// 	el:'screencontent',
-// 	targetid:'video',
-// 	movsrc:mov
-// }
-// screenshot(obj);
+let obj={
+	el:'screencontent',
+	targetid:'video',
+	movsrc:mov
+}
+screenshot(obj);
 $('.tabchange li').click(function(){
 		var num=$(this).index();
 		$(this).addClass('check').siblings('li').removeClass("check");
@@ -31,16 +31,16 @@ $('.tabchange li').click(function(){
 // 	   	ctx.drawImage(video,0,0,video.videoWidth,video.videoHeight);//在画布上画画
 // 	   	document.getElementById("win").style.display="block";
 // 	})
-$('.jcbtn').click(function(){
-	var video=document.getElementById("video");//获取id
-	var canvas = document.createElement("canvas");
-		canvas.width = video.videoWidth;;
-		canvas.height = video.videoHeight;
-		canvas.getContext("2d").drawImage(video,0,0,video.videoWidth,video.videoHeight);
-		var image = new Image();
-		image.src = canvas.toDataURL("image/png");
-		$('#imgid').append(image)
-		$(this).parent().hide();
-		$(this).parents('li').find('.load').show()
-		return image;
-})
+// $('.jcbtn').click(function(){
+// 	var video=document.getElementById("video");//获取id
+// 	var canvas = document.createElement("canvas");
+// 		canvas.width = video.videoWidth;;
+// 		canvas.height = video.videoHeight;
+// 		canvas.getContext("2d").drawImage(video,0,0,video.videoWidth,video.videoHeight);
+// 		var image = new Image();
+// 		image.src = canvas.toDataURL("image/png");
+// 		$('#imgid').append(image)
+// 		$(this).parent().hide();
+// 		$(this).parents('li').find('.load').show()
+// 		return image;
+// })

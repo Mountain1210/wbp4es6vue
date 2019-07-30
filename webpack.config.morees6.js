@@ -34,6 +34,7 @@ var website = {
 module.exports = {
     mode: "production", //webpack4判断是生产环境还是开发环境 
     entry: multipageHelper.getEntries(), //入口文件  PS：入口错误会导致impoft样式找不到,热加载失误
+    devtool: 'inline-source-map',
     output: {
         path: path.resolve(__dirname, "mrsrcdist") //打包输出的文件目录
 
