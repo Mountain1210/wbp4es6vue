@@ -164,7 +164,9 @@ module.exports = {
             jquery: "jquery",
             "window.jQuery": "jquery",
             _: 'lodash'
-        }), new VueLoaderPlugin(), new uglify(), new extractTextPlugin("css/index.css")
+        }), new VueLoaderPlugin(), new uglify(), new extractTextPlugin({
+  filename: 'css/[name].css'
+})
         // ,new PurifyCSSPlugin({ 
         //   //这里配置了一个paths，主要是需找html模板，purifycss根据这个配置会遍历你的文件，查找哪些css被使用了。
         //   paths: glob.sync(path.join(__dirname, 'src/*.html')),
