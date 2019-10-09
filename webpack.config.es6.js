@@ -40,13 +40,11 @@
     
     devServer:{
     	// contentBase:path.resolve(__dirname,'./es6'),
-    	//热重载
-        contentBase: path.join(__dirname, "es6"),
-        //热重载需要监听的文件目录
-        compress: true,
-        //启用压缩
-        port: 9000
-         //监听的端口号码
+    	
+       hot:true,//热重载
+        contentBase: path.join(__dirname, "es6"), //热重载需要监听的文件目录
+        compress: true,  //启用压缩
+        port: 9000,     //监听的端口号码
     },
     module:{
         rules:[
